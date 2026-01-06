@@ -1,0 +1,72 @@
+
+import type { Element, CanvasTemplate } from "../types/resume";
+
+export const professionalTemplates: CanvasTemplate[] = [
+  {
+    id: "professional-1", // ✅ string ID
+    type: "professional",
+    name: "Professional Layout",
+    layout: [
+      {
+        id: "pro-name",
+        type: "text",
+        x: 50,
+        y: 40,
+        width: 600,
+        height: 60,
+        content: "Full Name",
+        fontSize: 30,
+        fontFamily: "Roboto, sans-serif",
+        fontWeight: 700,
+      } as Element,
+      {
+        id: "pro-title",
+        type: "text",
+        x: 50,
+        y: 110,
+        width: 600,
+        height: 40,
+        content: "Professional Title",
+        fontSize: 18,
+        fontFamily: "Roboto, sans-serif",
+        fontWeight: 500,
+      } as Element,
+      {
+        id: "pro-summary",
+        type: "text",
+        x: 50,
+        y: 170,
+        width: 600,
+        height: 140,
+        content: "Write your summary here...",
+        fontSize: 14,
+        fontFamily: "Roboto, sans-serif",
+        fontWeight: 400,
+      } as Element,
+      {
+        id: "pro-skills",
+        type: "text",
+        x: 50,
+        y: 330,
+        width: 600,
+        height: 80,
+        content: "List your skills here...",
+        fontSize: 14,
+        fontFamily: "Roboto, sans-serif",
+        fontWeight: 400,
+      } as Element,
+      {
+        id: "pro-experience",
+        type: "text",
+        x: 50,
+        y: 420,
+        width: 600,
+        height: 200,
+        content: "Detail your work experience here...",
+        fontSize: 14,
+        fontFamily: "Roboto, sans-serif",
+        fontWeight: 400,
+      } as Element,
+    ],
+  },
+];
