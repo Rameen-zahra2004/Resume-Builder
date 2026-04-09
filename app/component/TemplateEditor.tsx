@@ -145,7 +145,10 @@ export default function TemplateEditor({ template }: TemplateEditorProps) {
           <h2 className="text-2xl font-bold mb-6 border-b pb-2 text-gray-700">
             Preview
           </h2>
-          <ResumeEditor resume={resume} />
+          <ResumeEditor
+  resume={resume}
+  onSave={handleFormChange}
+/>
         </div>
       </div>
     </div>
