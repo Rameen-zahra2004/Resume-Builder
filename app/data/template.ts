@@ -23,7 +23,7 @@ export const templates: TemplateItem[] = [
   { id: "classic", name: "Classic Resume", description: "Traditional, professional layout", type: "classic", image: "/templates/classic1.png" },
   { id: "elegant", name: "Elegant Resume", description: "Minimal and stylish", type: "elegant", image: "/templates/elegant1.png" },
   { id: "premium-elegant", name: "Premium Elegant", description: "Premium, refined style", type: "premium-elegant", image: "/templates/premium-elegant1.png" },
-  { id: "sidebarbold", name: "Sidebar Bold", description: "Bold sidebar layout", type: "sidebar-bold", image: "/templates/sidebarbold1.png" },
+  { id: "sidebar-bold", name: "Sidebar Bold", description: "Bold sidebar layout", type: "sidebar-bold", image: "/templates/sidebarbold1.png" },
   { id: "techgrid", name: "Tech Grid", description: "Grid layout for tech resumes", type: "tech-grid", image: "/templates/techgrid1.png" },
   { id: "corporate", name: "Corporate Resume", description: "Professional corporate style", type: "corporate", image: "/templates/corporate1.png" },
   { id: "professional", name: "Professional Resume", description: "Standard professional resume", type: "professional", image: "/templates/professional1.png" },

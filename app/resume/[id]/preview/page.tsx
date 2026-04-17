@@ -24,8 +24,8 @@ const TEMPLATE_LIST: { id: TemplateType; name: string }[] = [
   { id: "elegant", name: "Elegant Template" },
   { id: "premium-elegant", name: "Premium Elegant Template" },
   { id: "creative-photo", name: "Creative Photo Template" },
-  { id: "sidebarbold", name: "Sidebar Bold Template" },
-  { id: "techgrid", name: "TechGrid Template" },
+  { id: "sidebar-bold", name: "Sidebar Bold Template" },
+  { id: "tech-grid", name: "TechGrid Template" },
   { id: "professional", name: "Professional Template" },
   { id: "corporate", name: "Corporate Template" },
 ];
@@ -38,8 +38,9 @@ const TEMPLATE_STYLES: Record<TemplateType, string> = {
   elegant: "bg-gray-50 text-gray-800 font-serif italic",
   "premium-elegant": "bg-white text-gray-900 font-serif shadow-xl",
   "creative-photo": "bg-gray-50 text-gray-900 font-sans",
-  sidebarbold: "bg-white text-gray-900 font-sans border-l-8 border-indigo-600",
-  techgrid: "bg-gray-50 text-gray-800 font-mono",
+  "sidebar-bold":
+    "bg-white text-gray-900 font-sans border-l-8 border-indigo-600",
+  "tech-grid": "bg-gray-50 text-gray-800 font-mono",
   professional: "bg-white text-gray-900 font-sans shadow-md",
   corporate: "bg-gray-50 text-gray-900 font-sans border border-gray-300",
 };
@@ -54,7 +55,7 @@ export default function ResumePreviewPage() {
 
   // Redux state
   const resume = useSelector((state: RootState) =>
-    state.resumes.items.find((r) => r.id === resumeId)
+    state.resumes.items.find((r) => r.id === resumeId),
   );
 
   const [resumeData, setResumeData] = useState<Resume | null>(null);

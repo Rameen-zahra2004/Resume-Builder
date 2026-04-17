@@ -10,8 +10,8 @@ export type TemplateType =
   | "minimal"
   | "creative-photo"
   | "premium-elegant"
-  | "sidebarbold"
-  | "techgrid"
+  | "sidebar-bold"
+  | "tech-grid"
   | "creative"   ;
 
 export type ElementType = "text" | "shape";

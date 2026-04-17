@@ -1,20 +1,3 @@
-// // pages/index.tsx
-
-// import Features from "./component/features";
-// import Footer from "./component/footer";
-// import Hero from "./component/hero";
-// import Navbar from "./component/navbar";
-
-// export default function Home() {
-//   return (
-//     <div className="min-h-screen bg-gray-50 text-gray-900">
-//       <Navbar />
-//       <Hero />
-//       <Features />
-//       <Footer />
-//     </div>
-//   );
-// }
 "use client";
 
 import Navbar from "./component/navbar";

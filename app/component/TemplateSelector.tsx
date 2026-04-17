@@ -1,17 +1,28 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import Image from "next/image";
-import type { TemplateType } from "../types/resume";
+import type { TemplateType, Resume } from "../types/resume";
 import { templateList } from "../data/allTemplate";
 
-interface TemplateDefinition {
-  id: string;
-  type: TemplateType;
-  name: string;
-  preview?: string; // image path only
-  description?: string;
-}
+/* =========================
+   DUMMY RESUME (FIXED)
+========================= */
+const dummyResume: Resume = {
+  id: 0,
+  template: "modern",
+  theme: "blue",
+  title: "Preview Resume",
+  updatedAt: new Date().toISOString(),
+  data: {
+    name: "John Doe",
+    title: "Frontend Developer",
+    summary: "Preview summary",
+    skills: [{ name: "React" }, { name: "TypeScript" }],
+    experience: [],
+    projects: [],
+    education: [],
+  },
+};
 
 type Props = {
   selected: TemplateType;
@@ -19,23 +30,36 @@ type Props = {
 };
 
 export default function TemplateSelector({ selected, onSelect }: Props) {
-  const [activeIndex, setActiveIndex] = useState(
-    templateList.findIndex((t) => t.type === selected)
-  );
+  const [activeIndex, setActiveIndex] = useState<number>(() => {
+    const index = templateList.findIndex((t) => t.type === selected);
+    return index >= 0 ? index : 0;
+  });
+
   const listRef = useRef<HTMLDivElement>(null);
 
-  // Focus the active item whenever activeIndex changes
+  /* =========================
+     FOCUS ACTIVE ITEM
+  ========================= */
   useEffect(() => {
     const listEl = listRef.current;
-    if (listEl && activeIndex >= 0) {
-      const activeEl = listEl.querySelector<HTMLDivElement>(
-        `#template-${templateList[activeIndex].id}`
-      );
-      activeEl?.focus();
-    }
+    if (!listEl) return;
+
+    const activeTemplate = templateList[activeIndex];
+    if (!activeTemplate) return;
+
+    const activeEl = listEl.querySelector<HTMLDivElement>(
+      `#template-${activeTemplate.id}`,
+    );
+
+    activeEl?.focus();
   }, [activeIndex]);
 
+  /* =========================
+     KEYBOARD NAVIGATION
+  ========================= */
   const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (!templateList.length) return;
+
     let nextIndex = activeIndex;
 
     switch (e.key) {
@@ -66,68 +90,68 @@ export default function TemplateSelector({ selected, onSelect }: Props) {
   };
 
   return (
-    <div className="flex justify-center gap-6 mt-8 flex-wrap max-w-5xl mx-auto">
+    <div className="flex justify-center mt-8">
       <div
         ref={listRef}
         role="listbox"
         aria-label="Choose resume template"
         tabIndex={0}
         onKeyDown={handleKeyDown}
-        className="flex flex-wrap gap-6 outline-none"
+        className="flex flex-wrap gap-6 outline-none max-w-6xl justify-center"
       >
         {templateList.map((t, index) => {
           const isSelected = selected === t.type;
           const isActive = index === activeIndex;
+
+          const PreviewComponent = t.preview;
 
           return (
             <div
               key={t.id}
               id={`template-${t.id}`}
               role="option"
-              aria-selected={isSelected ? true : false} // ✅ boolean is valid
+              aria-selected={Boolean(isSelected)}
               tabIndex={isActive ? 0 : -1}
               onClick={() => {
                 setActiveIndex(index);
                 onSelect(t.type);
               }}
               className={`cursor-pointer rounded-2xl border bg-white shadow-sm
-                p-4 min-w-[150px] max-w-[200px] flex flex-col items-center
+                p-4 w-[220px] flex flex-col items-center
                 transition-all duration-300
                 ${
                   isSelected
                     ? "ring-2 ring-blue-500 shadow-xl border-blue-400"
                     : "hover:shadow-lg"
                 }
-                ${
-                  isActive
-                    ? "focus-visible:ring-2 focus-visible:ring-blue-400"
-                    : ""
-                }
               `}
             >
-              <div className="w-full h-32 rounded-lg border bg-gray-50 flex items-center justify-center overflow-hidden relative">
-                {t.preview ? (
-                  <Image
-                    src={t.preview}
-                    alt={`${t.name} resume template preview`}
-                    fill
-                    style={{ objectFit: "cover" }}
-                  />
+              {/* =========================
+                  PREVIEW (COMPONENT FIXED)
+              ========================= */}
+              <div className="w-full h-32 rounded-lg border bg-gray-50 overflow-hidden flex items-center justify-center">
+                {PreviewComponent ? (
+                  <div className="scale-[0.35] origin-top">
+                    <PreviewComponent resume={dummyResume} />
+                  </div>
                 ) : (
-                  <span className="text-gray-400 text-xs">Preview</span>
+                  <span className="text-gray-400 text-xs">No Preview</span>
                 )}
               </div>
 
-              <p className="text-lg font-semibold text-gray-900 mt-3">
+              {/* NAME */}
+              <p className="text-lg font-semibold text-gray-900 mt-3 text-center">
                 {t.name}
               </p>
 
+              {/* DESCRIPTION */}
               {t.description && (
                 <p className="text-sm text-gray-600 text-center mt-1 leading-snug">
                   {t.description}
                 </p>
               )}
 
+              {/* SELECTED BADGE */}
               {isSelected && (
                 <div
                   aria-hidden="true"

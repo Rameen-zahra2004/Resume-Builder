@@ -3,22 +3,24 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { useSelector, useDispatch } from "react-redux";
+
 import { RootState, AppDispatch } from "@/app/store/store";
-import { Resume } from "@/app/types/resume";
+import type { Resume } from "@/app/types/resume";
 import ResumePreview from "@/app/component/ResumePreview";
 import { updateResume } from "@/app/store/redux/resumeSlice";
 import { useToast } from "@/app/component/ui/use-toast";
 import { Button } from "@/app/component/ui/button";
 
 export default function ResumePreviewPage() {
-  const params = useParams(); // /resume/:id/preview
+  const params = useParams();
   const router = useRouter();
   const dispatch = useDispatch<AppDispatch>();
   const { toast } = useToast();
 
   const resumeId = Number(params.id);
+
   const resume = useSelector((state: RootState) =>
-    state.resumes.items.find((r) => r.id === resumeId)
+    state.resumes.items.find((r) => r.id === resumeId),
   );
 
   const [resumeData, setResumeData] = useState<Resume | null>(null);
@@ -36,17 +38,23 @@ export default function ResumePreviewPage() {
     );
   }
 
+  /* =========================
+     SAVE HANDLER (SAFE)
+  ========================= */
   const handleSave = async () => {
     setIsSaving(true);
+
     try {
       await dispatch(updateResume(resumeData)).unwrap();
+
       toast({
         title: "Resume Saved",
         description: "Your resume has been successfully saved.",
-        variant: "success",
+        variant: "default",
       });
     } catch (err) {
       console.error(err);
+
       toast({
         title: "Save Failed",
         description: "Something went wrong while saving the resume.",
@@ -59,18 +67,18 @@ export default function ResumePreviewPage() {
 
   const handleBack = () => router.back();
   const handlePrint = () => window.print();
+
   const handleSubmit = () => {
     toast({
       title: "Resume Submitted",
       description: "Your resume has been finalized successfully.",
-      variant: "success",
+      variant: "default",
     });
-    // Optionally update status in redux if needed
   };
 
   return (
     <div className="min-h-screen bg-gray-100 py-10 px-4 md:px-10">
-      {/* Header / Actions */}
+      {/* HEADER */}
       <div className="max-w-7xl mx-auto flex justify-between items-center mb-8">
         <Button
           onClick={handleBack}
@@ -104,7 +112,7 @@ export default function ResumePreviewPage() {
         </div>
       </div>
 
-      {/* Resume Preview */}
+      {/* PREVIEW */}
       <div className="bg-white rounded-3xl shadow-2xl p-6 max-w-5xl mx-auto print:max-w-[900px]">
         <ResumePreview data={resumeData.data} />
       </div>

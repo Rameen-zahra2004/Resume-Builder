@@ -15,12 +15,19 @@ export default function EditResumePage() {
   const router = useRouter();
 
   const resume = useSelector((state: RootState) =>
-    state.resumes.items.find((r) => r.id === resumeId)
+    state.resumes.items.find((r) => r.id === resumeId),
   );
 
   if (!resume) return <p className="p-6">Resume not found</p>;
 
-  const handleSave = async (updatedResume: typeof resume) => {
+  // ✅ FIX: Convert ResumeFormData → Resume
+  const handleSave = async (updatedData: typeof resume.data) => {
+    const updatedResume = {
+      ...resume,
+      data: updatedData,
+      updatedAt: new Date().toISOString(),
+    };
+
     await dispatch(updateResume(updatedResume)).unwrap();
     router.push("/dashboard");
   };
