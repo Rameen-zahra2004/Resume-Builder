@@ -1,3 +1,4 @@
+
 # Resume Builder
 
 Resume Builder is a modern web application that helps users create professional resumes quickly and easily.
@@ -25,14 +26,14 @@ It provides an intuitive form-based workflow, real-time preview, and multiple cu
 ## 📸 Screenshots
 
 ### Landing Page
-![Landing Page](screenshots/landing-page.png)
+![Landing Page](landing-page.png)
 
 ### Explore Tools & Templates
 All available templates are browsable from one gallery page before you start editing.
 
-![Template Gallery 1](screenshots/templates-gallery-1.png)
-![Template Gallery 2](screenshots/templates-gallery-2.png)
-![Template Gallery 3](screenshots/templates-gallery-3.png)
+![Template Gallery 1](templates-gallery-1.png)
+![Template Gallery 2](templates-gallery-2.png)
+![Template Gallery 3](templates-gallery-3.png)
 
 ---
 
@@ -43,41 +44,41 @@ Every template shares the same underlying data — fill your info out once, and 
 ### Modern
 Clean two-column layout with a circular photo slot at the top, followed by collapsible Summary / Skills / Experience / Education / Projects sections. Best for a straightforward, ATS-friendly resume.
 
-![Modern Template](screenshots/template-modern.png)
+![Modern Template](template-modern.png)
 
 ### Classic
 A traditional single-column resume layout with Save / Edit / Export PDF / Reset controls above the form, and a dedicated Live Preview pane on the right.
 
-![Classic Template](screenshots/template-classic.png)
+![Classic Template](template-classic.png)
 
 ### Minimal
 Stripped-down layout with generous white space, ideal for a distraction-free, text-first resume. Same Save / Edit / Reset / PDF controls as other templates.
 
-![Minimal Template](screenshots/template-minimal.png)
+![Minimal Template](template-minimal.png)
 
 ### Elegant
 Adds a soft gradient background and rounded section cards. The live preview panel highlights your name and professional title in a bold serif-style heading as you type.
 
-![Elegant Template](screenshots/template-elegant.png)
+![Elegant Template](template-elegant.png)
 
 ### Premium Elegant
 A refined variant of Elegant with a purple accent border around the whole form and solid-color action buttons (Preview, Save, Reset, Export PDF), giving it a more polished, premium feel.
 
-![Premium Elegant Template](screenshots/template-premium-elegant.png)
+![Premium Elegant Template](template-premium-elegant.png)
 
 ### Creative Photo
 The most colorful template — each section (Skills, Experience, Education, Projects) is tinted in its own pastel gradient (yellow, blue, green, pink), making the form easy to scan visually.
 
-![Creative Photo Template](screenshots/template-creative-photo.png)
+![Creative Photo Template](template-creative-photo.png)
 
 ### Sidebar Bold
 A bold, high-contrast layout with a purple gradient background and a photo circle with a camera icon placeholder. The live preview shows a bold accent bar next to your name and title, and skill tags render as filled pill badges.
 
-![Sidebar Bold Template](screenshots/template-sidebar-bold.png)
+![Sidebar Bold Template](template-sidebar-bold.png)
 
 Filled out with real data — name, contact info, and skills all render live as you type:
 
-![Sidebar Bold Filled Example](screenshots/filled-resume-preview.png)
+![Sidebar Bold Filled Example](filled-resume-preview.png)
 
 ### TechGrid, Professional & Corporate
 Three additional ATS-friendly templates available from the gallery, geared toward technical and corporate resumes. (Screenshots coming soon — click any of them from the [template gallery](https://resume-builder-two-ruddy.vercel.app) to preview instantly.)
@@ -91,23 +92,23 @@ Each template uses the same set of collapsible sections:
 ### Summary & Skills
 Write a short professional summary, then add skills one at a time. As you type, an autocomplete dropdown suggests matching skills (e.g. typing "h" suggests HTML, Python, GraphQL) so you can add them with one click.
 
-![Summary and Skills](screenshots/section-accordion.png)
-![Skill Autocomplete](screenshots/skills-autocomplete.png)
+![Summary and Skills](section-accordion.png)
+![Skill Autocomplete](skills-autocomplete.png)
 
 ### Experience
 Add role, company, location, start/end dates, and a description for each position. You can also attach achievements, tag relevant skills to that role, and upload supporting files. Everything you enter appears instantly in the live preview on the right.
 
-![Experience Section](screenshots/section-experience.png)
+![Experience Section](section-experience.png)
 
 ### Education
 Add degree, institution, field of study, and start/end year. There's also space for certifications/documents (file upload), honors, and courses — each with its own "+" button to add multiple entries.
 
-![Education Section](screenshots/section-education.png)
+![Education Section](section-education.png)
 
 ### Projects
 Add project name, your role, the tech stack used (with an "+ Add Tech" button for multiple technologies), a description, and a GitHub/demo link. Click "+ Add Project" to list more than one.
 
-![Projects Section](screenshots/section-projects.png)
+![Projects Section](section-projects.png)
 
 ---
 
@@ -115,7 +116,7 @@ Add project name, your role, the tech stack used (with an "+ Add Tech" button fo
 
 Once your resume is ready, click **Export PDF** on any template. This opens your browser's native "Save As" dialog so you can save a print-ready PDF copy directly to your computer.
 
-![Export to PDF](screenshots/export-pdf.png)
+![Export to PDF](export-pdf.png)
 
 ---
 
